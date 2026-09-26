@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ShopEase | Modern Shopping</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     AUTHENTICATION
+========================================= -->
+
+<section id="authScreen" class="auth-screen">
+
+    <div class="auth-wrapper">
+
+        <div class="auth-brand">
+
+            <div class="brand-logo">
+                🛍️
+            </div>
+
+            <div class="brand-name">
+                ShopEase
+            </div>
+
+            <h1>
+                Shopping made
+                <span>simple.</span>
+            </h1>
+
+            <p>
+                Discover products you love,
+                add them to your cart and
+                get them delivered with ease.
+            </p>
+
+            <div class="brand-features">
+
+                <div>
+                    ✓ Quality products
+                </div>
+
+                <div>
+                    ✓ Secure shopping
+                </div>
+
+                <div>
+                    ✓ Easy checkout
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="auth-card">
+
+            <!-- LOGIN -->
+
+            <div id="loginBox">
+
+                <div class="auth-heading">
+
+                    <span class="small-label">
+                        WELCOME BACK
+                    </span>
+
+                    <h2>
+                        Sign in to ShopEase
+                    </h2>
+
+                    <p>
+                        Continue your shopping journey.
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+
+                        <label for="loginEmail">
+                            Email address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        Sign In →
+                    </button>
+
+                </form>
+
+
+                <p class="switch-text">
+
+                    New to ShopEase?
+
+                    <button
+                        id="showRegister"
+                        class="link-btn"
+                    >
+                        Create an account
+                    </button>
+
+                </p>
+
+            </div>
+
+
+            <!-- REGISTER -->
+
+            <div
+                id="registerBox"
+                class="hidden"
+            >
+
+                <div class="auth-heading">
+
+                    <span class="small-label">
+                        GET STARTED
+                    </span>
+
+                    <h2>
+                        Create your account
+                    </h2>
+
+                    <p>
+                        Join ShopEase and start shopping.
+                    </p>
+
+                </div>
+
+
+                <form id="registerForm">
+
+                    <div class="form-group">
+
+                        <label for="registerName">
+                            Full name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerEmail">
+                            Email address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Create a password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        Create Account →
+                    </button>
+
+                </form>
+
+
+                <p class="switch-text">
+
+                    Already have an account?
+
+                    <button
+                        id="showLogin"
+                        class="link-btn"
+                    >
+                        Sign in
+                    </button>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     MAIN APPLICATION
+========================================= -->
+
+<section
+    id="appScreen"
+    class="app-screen hidden"
+>
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-inner">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="#"
+                class="logo"
+            >
+
+                <span class="logo-icon">
+                    🛍️
+                </span>
+
+                <span>
+                    Shop<span class="logo-highlight">Ease</span>
+                </span>
+
+            </a>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="main-nav">
+
+                <button
+                    class="nav-btn active"
+                    data-view="productsView"
+                >
+                    Home
+                </button>
+
+                <button
+                    class="nav-btn"
+                    data-view="productsView"
+                >
+                    Shop
+                </button>
+
+                <button
+                    class="nav-btn"
+                    data-view="ordersView"
+                >
+                    My Orders
+                </button>
+
+            </nav>
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="nav-actions">
+
+                <button
+                    class="icon-btn"
+                    title="Search"
+                    onclick="focusSearch()"
+                >
+                    🔍
+                </button>
+
+
+                <button
+                    class="cart-btn"
+                    data-view="cartView"
+                >
+
+                    🛒
+
+                    <span id="cartCount">
+                        0
+                    </span>
+
+                </button>
+
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">
+                        👤
+                    </div>
+
+                    <span id="userName">
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         MAIN
+    ====================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================
+             PRODUCTS / HOME
+        ================================== -->
+
+        <section
+            id="productsView"
+            class="view"
+        >
+
+
+            <!-- HERO -->
+
+            <div class="hero-section">
+
+                <div class="hero-content">
+
+                    <span class="hero-tag">
+                        ✦ NEW COLLECTION
+                    </span>
+
+                    <h1>
+                        Discover things
+                        <br>
+                        <span>you'll love.</span>
+                    </h1>
+
+                    <p>
+                        Explore our collection of
+                        carefully selected products
+                        designed for your everyday life.
+                    </p>
+
+                    <button
+                        class="hero-btn"
+                        onclick="scrollToProducts()"
+                    >
+                        Shop Now
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="floating-card card-one">
+                        🎧
+                    </div>
+
+                    <div class="hero-product">
+                        🛍️
+                    </div>
+
+                    <div class="floating-card card-two">
+                        ✨
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CATEGORY BAR -->
+
+            <div class="category-section">
+
+                <div class="section-title">
+
+                    <span>
+                        SHOP BY CATEGORY
+                    </span>
+
+                    <h2>
+                        Find what you need
+                    </h2>
+
+                </div>
+
+
+                <div class="category-grid">
+
+                    <button
+                        class="category-card"
+                        onclick="filterCategory('Electronics')"
+                    >
+
+                        <div class="category-icon">
+                            💻
+                        </div>
+
+                        <strong>
+                            Electronics
+                        </strong>
+
+                        <span>
+                            Explore →
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="category-card"
+                        onclick="filterCategory('Fashion')"
+                    >
+
+                        <div class="category-icon">
+                            👟
+                        </div>
+
+                        <strong>
+                            Fashion
+                        </strong>
+
+                        <span>
+                            Explore →
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="category-card"
+                        onclick="filterCategory('Home')"
+                    >
+
+                        <div class="category-icon">
+                            🏠
+                        </div>
+
+                        <strong>
+                            Home
+                        </strong>
+
+                        <span>
+                            Explore →
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="category-card"
+                        onclick="showAllProducts()"
+                    >
+
+                        <div class="category-icon">
+                            ✨
+                        </div>
+
+                        <strong>
+                            All Products
+                        </strong>
+
+                        <span>
+                            Explore →
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCTS -->
+
+            <div
+                id="productSection"
+                class="product-section"
+            >
+
+                <div class="products-heading">
+
+                    <div>
+
+                        <span>
+                            OUR COLLECTION
+                        </span>
+
+                        <h2>
+                            Popular Products
+                        </h2>
+
+                    </div>
+
+
+                    <div class="product-tools">
+
+                        <input
+                            type="search"
+                            id="productSearch"
+                            placeholder="Search products..."
+                        >
+
+                        <select
+                            id="categoryFilter"
+                        >
+
+                            <option value="all">
+                                All Categories
+                            </option>
+
+                            <option value="Electronics">
+                                Electronics
+                            </option>
+
+                            <option value="Fashion">
+                                Fashion
+                            </option>
+
+                            <option value="Home">
+                                Home
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="productsContainer"
+                    class="products-grid"
+                >
+
+                    <!-- Products loaded by JavaScript -->
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+             CART
+        ================================== -->
+
+        <section
+            id="cartView"
+            class="view hidden"
+        >
+
+            <div class="page-heading">
+
+                <span>
+                    YOUR SHOPPING BAG
+                </span>
+
+                <h1>
+                    Shopping Cart 🛒
+                </h1>
+
+                <p>
+                    Review your items before checkout.
+                </p>
+
+            </div>
+
+
+            <div id="cartContainer">
+
+                <!-- Cart loaded by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             ORDERS
+        ================================== -->
+
+        <section
+            id="ordersView"
+            class="view hidden"
+        >
+
+            <div class="page-heading">
+
+                <span>
+                    PURCHASE HISTORY
+                </span>
+
+                <h1>
+                    My Orders 📦
+                </h1>
+
+                <p>
+                    Track and review your purchases.
+                </p>
+
+            </div>
+
+
+            <div id="ordersContainer">
+
+                <!-- Orders loaded by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             ORDER DETAILS
+        ================================== -->
+
+        <section
+            id="orderDetailsView"
+            class="view hidden"
+        >
+
+            <button
+                id="backToOrders"
+                class="back-btn"
+            >
+                ← Back to Orders
+            </button>
+
+
+            <div id="orderDetailsContainer">
+
+                <!-- Order details loaded by JavaScript -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================
+         TOAST
+    ====================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+    <script src="script.js"></script>
+
+</section>
+
+</body>
+
+</html>
