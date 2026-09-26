@@ -2,7 +2,7 @@
    SHOP EASE - FRONTEND JAVASCRIPT
 ========================================= */
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://shopease-e-commerce-production-0f75.up.railway.app/api";
 
 let currentUser = null;
 let products = [];
